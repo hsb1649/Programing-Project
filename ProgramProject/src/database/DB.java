@@ -30,14 +30,14 @@ public class DB
 			System.out.println("Connection Failed");
 			e.printStackTrace();
 		}
-
+		register("asqwrwqr", "dfgdfg", 'c');
 	}
 
+	// ID 중복 체크
 	public static boolean idCheck(String id) throws SQLException
 	{
 		rs = stat.executeQuery("select id from customer where id = '" + id
 				+ "'");
-
 		if (rs != null)
 		{
 			return true;
@@ -45,6 +45,14 @@ public class DB
 		{
 			return false;
 		}
+	}
+
+	// 회원 가입
+	public static void register(String id, String pw, char sex)
+			throws SQLException
+	{
+		stat.executeQuery("insert into customer values('" + id + "','" + pw
+				+ "','" + sex + "')");
 	}
 
 }
