@@ -6,14 +6,24 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.border.MatteBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
 
 public class Menu1 
 {
 	JFrame f;
-	JFrame login;
-	JFrame reg;
-	JPanel menuPane, wherePane,searchPane;
-	JButton button, button_0, button_1, button_2, button_3,button_4,button_5,button_6,button_7,button_8, button_9;
+	private SearchResult s;
+	private JPanel menuPane, wherePane,searchPane;
+	private JButton button, button_0, button_1, button_2, button_3,button_4,button_5,button_6,button_7,button_8, button_9;
+	private JTextField snametxt;
+	private JLabel mnameLabel;
+	private JTextField mnametxt;
+	private JButton search_mname;
+	private JTextField min;
+	private JTextField max;
+	private JLabel label;
+	private JLabel label_1;
+	private JButton search_price;
 	
 	public Menu1()
 	{
@@ -34,7 +44,7 @@ public class Menu1
 		wherePane = new JPanel();
 		wherePane.setVisible(false);
 		
-		JPanel searchPane = new JPanel();
+		searchPane = new JPanel();
 		searchPane.setVisible(false);
 		searchPane.setBounds(0, 0, 444, 525);
 		f.getContentPane().add(searchPane);
@@ -44,6 +54,100 @@ public class Menu1
 		button_9.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
 		button_9.setBounds(40, 450, 100, 29);
 		searchPane.add(button_9);
+		
+		JPanel store_name = new JPanel();
+		store_name.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		store_name.setBounds(30, 75, 380, 65);
+		searchPane.add(store_name);
+		store_name.setLayout(null);
+		
+		snametxt = new JTextField();
+		snametxt.setBounds(112, 23, 136, 23);
+		snametxt.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		store_name.add(snametxt);
+		snametxt.setColumns(20);
+		
+		JLabel snameLabel = new JLabel("∞°∞‘ ¿Ã∏ß :");
+		snameLabel.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		snameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		snameLabel.setBounds(34, 22, 69, 23);
+		store_name.add(snameLabel);
+		
+		JButton serch_sname = new JButton("∞Àªˆ«œ±‚");
+		serch_sname.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SearchResult s = new SearchResult();
+			}
+		});
+		serch_sname.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		serch_sname.setBounds(260, 23, 97, 23);
+		store_name.add(serch_sname);
+		
+		JPanel menu_name = new JPanel();
+		menu_name.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		menu_name.setBounds(30, 190, 380, 65);
+		searchPane.add(menu_name);
+		menu_name.setLayout(null);
+		
+		mnameLabel = new JLabel("∏ﬁ¥∫ ¿Ã∏ß :");
+		mnameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		mnameLabel.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		mnameLabel.setBounds(34, 22, 69, 23);
+		menu_name.add(mnameLabel);
+		
+		mnametxt = new JTextField();
+		mnametxt.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		mnametxt.setColumns(20);
+		mnametxt.setBounds(112, 23, 136, 23);
+		menu_name.add(mnametxt);
+		
+		search_mname = new JButton("∞Àªˆ«œ±‚");
+		search_mname.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		search_mname.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		search_mname.setBounds(260, 23, 97, 23);
+		menu_name.add(search_mname);
+		
+		JPanel price_Range = new JPanel();
+		price_Range.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		price_Range.setBounds(30, 307, 380, 65);
+		searchPane.add(price_Range);
+		price_Range.setLayout(null);
+		
+		min = new JTextField();
+		min.setHorizontalAlignment(SwingConstants.TRAILING);
+		min.setBounds(26, 23, 78, 21);
+		min.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		price_Range.add(min);
+		min.setColumns(10);
+		
+		max = new JTextField();
+		max.setHorizontalAlignment(SwingConstants.TRAILING);
+		max.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		max.setColumns(10);
+		max.setBounds(151, 24, 78, 21);
+		price_Range.add(max);
+		
+		label = new JLabel("ø¯ ~");
+		label.setBounds(111, 23, 28, 23);
+		label.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		price_Range.add(label);
+		
+		label_1 = new JLabel("ø¯");
+		label_1.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		label_1.setBounds(234, 23, 14, 23);
+		price_Range.add(label_1);
+		
+		search_price = new JButton("\uAC80\uC0C9\uD558\uAE30");
+		search_price.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		search_price.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		search_price.setBounds(260, 23, 97, 23);
+		price_Range.add(search_price);
 		
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,6 +248,12 @@ public class Menu1
 		button_3.setBounds(211, 77, 83, 33);
 		menuPane.add(button_3);
 		button_3.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
+		
+		JPanel panel = new JPanel();
+		panel.setVisible(false);
+		panel.setBounds(0, 0, 444, 525);
+		f.getContentPane().add(panel);
+		panel.setLayout(null);
 		
 		
 		button.addActionListener(new ActionListener() {
