@@ -12,7 +12,7 @@ public class DB
 	static Statement stat;
 	static ResultSet rs;
 
-	public static void Access() 
+	public static void Access() throws SQLException
 	{
 		String driverName = "org.mariadb.jdbc.Driver";
 		String url = "jdbc:mariadb://localhost:3306/project";
@@ -27,20 +27,32 @@ public class DB
 			stat.executeQuery("use project");
 		} catch (Exception e)
 		{
+			System.out.println("Connection Failed");
 			e.printStackTrace();
 		}
-		
-		
+		register("asqwrwqr", "dfgdfg", 'c');
 	}
 
-	public static void register(String id, String pw)throws SQLException
+	// ID 중복 체크
+	public static boolean idCheck(String id) throws SQLException
 	{
-		String[] ids = null;
-		int i = 0;
-		rs = stat.executeQuery("select id from customer");
-		while (rs.next())
+		rs = stat.executeQuery("select id from customer where id = '" + id
+				+ "'");
+		if (rs != null)
 		{
-			System.out.println(rs.getString("id"));
+			return true;
+		} else
+		{
+			return false;
 		}
 	}
+
+	// 회원 가입
+	public static void register(String id, String pw, char sex)
+			throws SQLException
+	{
+		stat.executeQuery("insert into customer values('" + id + "','" + pw
+				+ "','" + sex + "')");
+	}
+
 }
