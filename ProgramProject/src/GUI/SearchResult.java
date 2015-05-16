@@ -16,7 +16,7 @@ public class SearchResult {
 		f = new JFrame("검색 결과");
 		f.getContentPane().setBackground(Color.LIGHT_GRAY);
 		f.setBackground(Color.LIGHT_GRAY);
-		f.setBounds(555, 95, 450, 570);
+		f.setBounds(555, 95, 450, 560);
 		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		f.getContentPane().setLayout(null);
 		

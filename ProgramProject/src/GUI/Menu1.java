@@ -41,9 +41,8 @@ public class Menu1
 		f.setResizable(false);
 		f.getContentPane().setLayout(null);
 		
-		wherePane = new JPanel();
-		wherePane.setVisible(false);
 		
+		//검색 페이지
 		searchPane = new JPanel();
 		searchPane.setVisible(false);
 		searchPane.setBounds(0, 0, 444, 525);
@@ -76,7 +75,8 @@ public class Menu1
 		JButton serch_sname = new JButton("검색하기");
 		serch_sname.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				SearchResult s = new SearchResult();
+				if(s==null)
+					s=new SearchResult();
 			}
 		});
 		serch_sname.setFont(new Font("HY동녘M", Font.PLAIN, 13));
@@ -104,6 +104,8 @@ public class Menu1
 		search_mname = new JButton("검색하기");
 		search_mname.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(s==null)
+					s=new SearchResult();
 			}
 		});
 		search_mname.setFont(new Font("HY동녘M", Font.PLAIN, 13));
@@ -140,9 +142,11 @@ public class Menu1
 		label_1.setBounds(234, 23, 14, 23);
 		price_Range.add(label_1);
 		
-		search_price = new JButton("\uAC80\uC0C9\uD558\uAE30");
+		search_price = new JButton("검색하기");
 		search_price.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(s==null)
+					s=new SearchResult();
 			}
 		});
 		search_price.setFont(new Font("HY동녘M", Font.PLAIN, 13));
@@ -153,9 +157,52 @@ public class Menu1
 			public void actionPerformed(ActionEvent e) {
 				searchPane.setVisible(false);
 				menuPane.setVisible(true);
+				s.f.dispose();
 			}
 		});
 		
+		
+		//처음 기본 메뉴 페이지
+		menuPane = new JPanel();
+		menuPane.setBounds(0, 0, 444, 525);
+		f.getContentPane().add(menuPane);
+		menuPane.setLayout(null);
+				
+		button_0 = new JButton("어디서 먹지?");
+		button_0.setBounds(40, 150, 370, 65);
+		menuPane.add(button_0);
+		button_0.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		button_0.setFont(new Font("휴먼편지체", Font.BOLD, 36));
+		
+		button = new JButton("뭐 먹을지 검색!");
+		button.setBounds(40, 240, 370, 65);
+		menuPane.add(button);
+		button.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		button.setFont(new Font("휴먼편지체", Font.BOLD, 36));
+		
+		button_1 = new JButton("추천 받아요");
+		button_1.setBounds(40, 330, 370, 65);
+		menuPane.add(button_1);
+		button_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		button_1.setFont(new Font("휴먼편지체", Font.BOLD, 36));
+		
+		button_2 = new JButton("회원가입");
+		button_2.setBounds(304, 77, 98, 33);
+		menuPane.add(button_2);
+		button_2.setFont(new Font("HY동녘M", Font.PLAIN, 13));
+		
+		button_3 = new JButton("로그인");
+		button_3.setBounds(211, 77, 83, 33);
+		menuPane.add(button_3);
+		button_3.setFont(new Font("HY동녘M", Font.PLAIN, 13));
+		
+		JPanel panel = new JPanel();
+		panel.setVisible(false);
+		
+		
+		//어디서 먹지 골랐을때 페이지
+		wherePane = new JPanel();	
+		wherePane.setVisible(false);
 		wherePane.setBounds(0, 0, 444, 525);
 		f.getContentPane().add(wherePane);
 		wherePane.setLayout(null);
@@ -214,43 +261,6 @@ public class Menu1
 				menuPane.setVisible(true);
 			}
 		});
-		
-		
-		menuPane = new JPanel();
-		menuPane.setBounds(0, 0, 444, 525);
-		f.getContentPane().add(menuPane);
-		menuPane.setLayout(null);
-				
-		button_0 = new JButton("어디서 먹지?");
-		button_0.setBounds(40, 150, 370, 65);
-		menuPane.add(button_0);
-		button_0.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		button_0.setFont(new Font("휴먼편지체", Font.BOLD, 36));
-		
-		button = new JButton("뭐 먹을지 검색!");
-		button.setBounds(40, 240, 370, 65);
-		menuPane.add(button);
-		button.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		button.setFont(new Font("휴먼편지체", Font.BOLD, 36));
-		
-		button_1 = new JButton("추천 받아요");
-		button_1.setBounds(40, 330, 370, 65);
-		menuPane.add(button_1);
-		button_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		button_1.setFont(new Font("휴먼편지체", Font.BOLD, 36));
-		
-		button_2 = new JButton("회원가입");
-		button_2.setBounds(304, 77, 98, 33);
-		menuPane.add(button_2);
-		button_2.setFont(new Font("HY동녘M", Font.PLAIN, 13));
-		
-		button_3 = new JButton("로그인");
-		button_3.setBounds(211, 77, 83, 33);
-		menuPane.add(button_3);
-		button_3.setFont(new Font("HY동녘M", Font.PLAIN, 13));
-		
-		JPanel panel = new JPanel();
-		panel.setVisible(false);
 		panel.setBounds(0, 0, 444, 525);
 		f.getContentPane().add(panel);
 		panel.setLayout(null);

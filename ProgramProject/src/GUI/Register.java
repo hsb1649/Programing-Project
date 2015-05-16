@@ -24,6 +24,7 @@ public class Register
 	private JLabel idCondition;
 	private JLabel idChecklabel;
 	private JLabel label;
+	
 	public Register(JFrame f) 
 	{
 		initialize(f);
@@ -62,8 +63,6 @@ public class Register
 		male.setFont(new Font("HY疑活M", Font.PLAIN, 12));
 		male.setBounds(94, 198, 49, 23);
 		reg.getContentPane().add(male);
-		
-		
 		
 		female = new JRadioButton("食切");
 		female.setFont(new Font("HY疑活M", Font.PLAIN, 12));
