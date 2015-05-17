@@ -16,7 +16,7 @@ import javax.swing.JPasswordField;
 public class Login 
 {
 
-	private JFrame login;
+	JFrame login;
 	private JTextField idtxt;
 	private JPasswordField pwtxt;
 

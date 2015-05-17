@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Register 
 {
@@ -20,6 +21,10 @@ public class Register
 	private JButton OKButton;
 	private JButton cancelButton;
 	private JPasswordField passwordField;
+	private JLabel idCondition;
+	private JLabel idChecklabel;
+	private JLabel label;
+	
 	public Register(JFrame f) 
 	{
 		initialize(f);
@@ -37,33 +42,31 @@ public class Register
 		idtxt = new JTextField();
 		idtxt.setFont(new Font("HY동녘M", Font.PLAIN, 13));
 		idtxt.setColumns(15);
-		idtxt.setBounds(94, 76, 107, 30);
+		idtxt.setBounds(94, 31, 107, 30);
 		reg.getContentPane().add(idtxt);
 		
 		JLabel idLabel = new JLabel("ID");
 		idLabel.setVerticalTextPosition(SwingConstants.TOP);
 		idLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		idLabel.setFont(new Font("HY동녘M", Font.PLAIN, 17));
-		idLabel.setBounds(23, 79, 64, 23);
+		idLabel.setBounds(23, 34, 64, 23);
 		reg.getContentPane().add(idLabel);
 		
 		JLabel pwLabel = new JLabel("P/W");
 		pwLabel.setVerticalTextPosition(SwingConstants.TOP);
 		pwLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pwLabel.setFont(new Font("HY동녘M", Font.PLAIN, 17));
-		pwLabel.setBounds(23, 124, 64, 23);
+		pwLabel.setBounds(23, 111, 64, 23);
 		reg.getContentPane().add(pwLabel);
 		
 		JRadioButton male = new JRadioButton("남자");
 		male.setFont(new Font("HY동녘M", Font.PLAIN, 12));
-		male.setBounds(94, 172, 49, 23);
+		male.setBounds(94, 198, 49, 23);
 		reg.getContentPane().add(male);
-		
-		
 		
 		female = new JRadioButton("여자");
 		female.setFont(new Font("HY동녘M", Font.PLAIN, 12));
-		female.setBounds(147, 172, 49, 23);
+		female.setBounds(147, 198, 49, 23);
 		reg.getContentPane().add(female);
 		
 		ButtonGroup g = new ButtonGroup();
@@ -74,12 +77,23 @@ public class Register
 		sexLabel.setVerticalTextPosition(SwingConstants.TOP);
 		sexLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		sexLabel.setFont(new Font("HY동녘M", Font.PLAIN, 17));
-		sexLabel.setBounds(23, 172, 64, 23);
+		sexLabel.setBounds(23, 198, 64, 23);
 		
 		reg.getContentPane().add(sexLabel);
 		
 		idCheck = new JButton("ID 중복확인");
-		idCheck.setBounds(216, 79, 107, 23);
+		idCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				idChecklabel.setText("아이디 사용가능");
+				idChecklabel.setForeground(new Color(34, 139, 34));
+				/*
+				idChecklabel.setText("아이디 중복");
+				idChecklabel.setForeground(Color.RED);
+				*/
+			}
+		});
+		idCheck.setBounds(216, 34, 107, 23);
 		idCheck.setFont(new Font("HY동녘M", Font.PLAIN, 13));
 		reg.getContentPane().add(idCheck);
 		
@@ -110,9 +124,29 @@ public class Register
 		passwordField = new JPasswordField();
 		passwordField.setEchoChar('*');
 		passwordField.setFont(new Font("HY동녘M", Font.PLAIN, 13));
-		passwordField.setBounds(94, 121, 107, 30);
+		passwordField.setBounds(94, 108, 107, 30);
 		reg.getContentPane().add(passwordField);
-
+		
+		idCondition = new JLabel("영소문자, 영대문자, 숫자 최대 15자");
+		idCondition.setHorizontalAlignment(SwingConstants.CENTER);
+		idCondition.setForeground(Color.GRAY);
+		idCondition.setFont(new Font("HY동녘M", Font.PLAIN, 11));
+		idCondition.setBounds(23, 72, 190, 15);
+		reg.getContentPane().add(idCondition);
+		
+		idChecklabel = new JLabel();
+		idChecklabel.setHorizontalAlignment(SwingConstants.CENTER);
+		idChecklabel.setBounds(226, 72, 107, 14);
+		idChecklabel.setFont(new Font("HY동녘M", Font.PLAIN, 11));
+		reg.getContentPane().add(idChecklabel);
+		
+		label = new JLabel("비밀번호 최대 15글자");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.GRAY);
+		label.setFont(new Font("HY동녘M", Font.PLAIN, 11));
+		label.setBounds(23, 152, 190, 15);
+		reg.getContentPane().add(label);
+		
 		
 		reg.addWindowListener(new WindowListener(){
 
