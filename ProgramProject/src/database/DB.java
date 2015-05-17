@@ -30,7 +30,6 @@ public class DB
 			System.out.println("Connection Failed");
 			e.printStackTrace();
 		}
-		logIn("swp1234", "park12");
 	}
 
 	// ID 중복 체크
