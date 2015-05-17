@@ -30,7 +30,7 @@ public class DB
 			System.out.println("Connection Failed");
 			e.printStackTrace();
 		}
-		register("asqwrwqr", "dfgdfg", 'c');
+		logIn("swp1234", "park12");
 	}
 
 	// ID 중복 체크
@@ -38,13 +38,16 @@ public class DB
 	{
 		rs = stat.executeQuery("select id from customer where id = '" + id
 				+ "'");
-		if (rs != null)
+		// 중복이라면 true
+		while (rs.next())
 		{
-			return true;
-		} else
-		{
-			return false;
+			if (rs.getString("id") != null)
+			{
+				return true;
+			}
 		}
+		// 중복이 아니라면 false
+		return false;
 	}
 
 	// 회원 가입
@@ -55,4 +58,29 @@ public class DB
 				+ "','" + sex + "')");
 	}
 
+	public static int logIn(String id, String pw) throws SQLException
+	{
+		rs = stat.executeQuery("select id from customer where id = '" + id
+				+ "'");
+		while (rs.next())
+		{
+			rs = stat.executeQuery("select password from customer where id = '"
+					+ id + "'");
+			while (rs.next())
+			{
+				if (rs.getString("password").equals(pw))
+				{
+					System.out.println("로그인 성공");
+					// 로그인 성공이라면 1반환
+					return 1;
+				}
+			}
+			// password가 다르면 0 반환
+			System.out.println("비밀번호가 다릅니다");
+			return 0;
+		}
+		// 아이디가 존재하지않는다면 -1 반환
+		System.out.println("아이디가 존재하지 않습니다");
+		return -1;
+	}
 }
