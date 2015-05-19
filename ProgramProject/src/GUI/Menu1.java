@@ -77,8 +77,10 @@ public class Menu1
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				if (s == null)
+				if(s==null)
 					s = new SearchResult();
+				else
+					s.f.setVisible(true);
 			}
 		});
 		serch_sname.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
@@ -108,8 +110,10 @@ public class Menu1
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if (s == null)
+				if(s==null)
 					s = new SearchResult();
+				else
+					s.f.setVisible(true);
 			}
 		});
 		search_mname.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
@@ -152,8 +156,10 @@ public class Menu1
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if (s == null)
+				if(s==null)
 					s = new SearchResult();
+				else
+					s.f.setVisible(true);
 			}
 		});
 		search_price.setFont(new Font("HYµø≥ËM", Font.PLAIN, 13));
