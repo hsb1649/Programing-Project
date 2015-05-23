@@ -56,6 +56,7 @@ public class Menu1
 		JPanel store_name = new JPanel();
 		store_name
 				.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		
 		store_name.setBounds(30, 75, 380, 65);
 		searchPane.add(store_name);
 		store_name.setLayout(null);
